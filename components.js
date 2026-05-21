@@ -63,10 +63,10 @@ function renderFooter(options = {}) {
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                 <!-- Column 1: Brand -->
                 <div class="flex flex-col gap-4">
-                    <div class="flex items-center gap-3">
+                    <a href="https://www.nasa.gov" target="_blank" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
                         ${NASA_LOGO_SVG_FOOTER}
                         <span class="text-lg font-bold tracking-tighter uppercase font-headline">NASA 70</span>
-                    </div>
+                    </a>
                     <p class="text-sm text-on-surface-variant leading-relaxed">
                         NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.
                     </p>
