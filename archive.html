@@ -194,74 +194,81 @@
 <!-- Header placeholder -->
 <div id="site-header"></div>
 
-<main class="flex-grow flex flex-col md:flex-row px-8 py-12 gap-12 max-w-[1920px] mx-auto w-full">
-    <!-- Sidebar Filters -->
-    <aside class="w-full md:w-64 flex-shrink-0 space-y-10">
-        <!-- Search Section -->
-        <div>
-            <!-- Sort & Results Section -->
-            <div class="flex items-center gap-4 mb-4">
-                <div class="relative" id="sortDropdown">
-                    <button id="sortBtn" class="flex items-center justify-center w-10 h-10 bg-surface-container-low border border-outline-variant text-on-surface rounded-full hover:border-nasa-red transition-all cursor-pointer">
-                        <span class="material-symbols-outlined text-lg">swap_vert</span>
-                    </button>
-                    <div id="sortMenu" class="hidden absolute left-0 mt-2 bg-surface-container-low border border-outline-variant rounded-xl shadow-lg z-50 min-w-[140px] overflow-hidden">
-                        <button data-sort="shuffle" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                            <span class="material-symbols-outlined text-base">shuffle</span> SHUFFLE
-                        </button>
-                        <button data-sort="alpha-az" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                            <span class="material-symbols-outlined text-base">sort_by_alpha</span> A-Z
-                        </button>
-                        <button data-sort="alpha-za" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                            <span class="material-symbols-outlined text-base">sort_by_alpha</span> Z-A
-                        </button>
-                        <button data-sort="chrono-new" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                            <span class="material-symbols-outlined text-base">schedule</span> NEWEST
-                        </button>
-                        <button data-sort="chrono-old" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                            <span class="material-symbols-outlined text-base">history</span> OLDEST
-                        </button>
+<main class="flex-grow flex flex-col px-8 py-12 gap-8 max-w-[1920px] mx-auto w-full">
+    <!-- Top Bar -->
+    <div class="flex items-center gap-4 w-full">
+        <div class="relative" id="sortDropdown">
+            <button id="sortBtn" class="flex items-center justify-center w-10 h-10 bg-surface-container-low border border-outline-variant text-on-surface rounded-full hover:border-nasa-red transition-all cursor-pointer">
+                <span class="material-symbols-outlined text-lg">swap_vert</span>
+            </button>
+            <div id="sortMenu" class="hidden absolute left-0 mt-2 bg-surface-container-low border border-outline-variant rounded-xl shadow-lg z-50 min-w-[140px] overflow-hidden">
+                <button data-sort="shuffle" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">shuffle</span> SHUFFLE
+                </button>
+                <button data-sort="alpha-az" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">sort_by_alpha</span> A-Z
+                </button>
+                <button data-sort="alpha-za" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">sort_by_alpha</span> Z-A
+                </button>
+                <button data-sort="chrono-new" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">schedule</span> NEWEST
+                </button>
+                <button data-sort="chrono-old" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">history</span> OLDEST
+                </button>
+            </div>
+        </div>
+        <div class="text-sm font-bold tech-label text-on-surface-variant" id="resultsCount">Establishing Link...</div>
+        <button id="toggleSidebarBtn" class="flex items-center justify-center w-10 h-10 bg-surface-container-low border border-outline-variant text-on-surface rounded-full hover:border-nasa-red transition-all cursor-pointer">
+            <span class="material-symbols-outlined text-lg">menu</span>
+        </button>
+    </div>
+
+    <!-- Content Area -->
+    <div class="flex flex-col md:flex-row gap-12 w-full transition-all duration-500" id="mainContent">
+        <!-- Sidebar Filters -->
+        <aside class="w-full md:w-64 flex-shrink-0 transition-all duration-500 overflow-hidden" id="sidebar">
+            <div id="sidebarFilters" class="space-y-10 min-w-[256px]">
+                <!-- Search Section -->
+                <div class="relative">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-base">search</span>
+                    <input id="searchInput" class="search-input w-full focus:ring-0 rounded-full" placeholder="Search archive..." type="text">
+                </div>
+                
+                <!-- Reset Filters -->
+                <div>
+                    <button id="resetFiltersBtn" class="tech-label text-[10px] font-bold border-b border-nasa-red border-dashed pb-1 text-nasa-red hover:opacity-80 transition-opacity">Reset Filters</button>
+                </div>
+                
+                <!-- TAG MACRO Filter -->
+                <div>
+                    <h2 class="tech-label text-[10px] font-bold text-nasa-red mb-4">TAG MACRO</h2>
+                    <div class="space-y-3">
+                        <div class="flex flex-wrap gap-2" id="macroContainer">
+                            <!-- Dynamic statuses injected by JS -->
+                        </div>
                     </div>
                 </div>
-                <div class="text-sm font-bold tech-label text-on-surface-variant" id="resultsCount">Establishing Link...</div>
-            </div>
-            <div class="relative">
-                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-base">search</span>
-                <input id="searchInput" class="search-input w-full focus:ring-0 rounded-full" placeholder="Search archive..." type="text">
-            </div>
-        </div>
-        
-        <!-- Reset Filters -->
-        <div>
-            <button id="resetFiltersBtn" class="tech-label text-[10px] font-bold border-b border-nasa-red border-dashed pb-1 text-nasa-red hover:opacity-80 transition-opacity">Reset Filters</button>
-        </div>
-        
-        <!-- TAG MACRO Filter -->
-        <div>
-            <h2 class="tech-label text-[10px] font-bold text-nasa-red mb-4">TAG MACRO</h2>
-            <div class="space-y-3">
-                <div class="flex flex-wrap gap-2" id="macroContainer">
-                    <!-- Dynamic statuses injected by JS -->
+                
+                <!-- TAG MICRO Filter -->
+                <div class="max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+                    <div class="flex items-center justify-between mb-4 sticky top-0 bg-surface z-10 gap-2">
+                        <h2 class="tech-label text-[10px] font-bold text-nasa-red" style="margin-right: 30px;">TAG MICRO</h2>
+                    </div>
+                    <div class="flex flex-wrap gap-2" id="microContainer">
+                        <!-- Dynamic types injected by JS -->
+                    </div>
                 </div>
             </div>
-        </div>
+        </aside>
         
-        <!-- TAG MICRO Filter -->
-        <div class="max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
-            <div class="flex items-center justify-between mb-4 sticky top-0 bg-surface z-10 gap-2">
-                <h2 class="tech-label text-[10px] font-bold text-nasa-red" style="margin-right: 30px;">TAG MICRO</h2>
+        <!-- Main Grid Area -->
+        <div class="flex-grow transition-all duration-500 min-w-0">
+            <!-- Results Grid (Masonry Columns) -->
+            <div class="flex gap-8" id="archive-grid">
+                <!-- Dynamic cards injected by JS -->
             </div>
-            <div class="flex flex-wrap gap-2" id="microContainer">
-                <!-- Dynamic types injected by JS -->
-            </div>
-        </div>
-    </aside>
-    
-    <!-- Main Grid Area -->
-    <div class="flex-grow">
-        <!-- Results Grid (Masonry Columns) -->
-        <div class="flex gap-8" id="archive-grid">
-            <!-- Dynamic cards injected by JS -->
         </div>
     </div>
 </main>
