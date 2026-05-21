@@ -198,6 +198,32 @@
     <aside class="w-full md:w-64 flex-shrink-0 space-y-10">
         <!-- Search Section -->
         <div>
+            <!-- Sort & Results Section -->
+            <div class="flex items-center gap-4 mb-4">
+                <div class="relative" id="sortDropdown">
+                    <button id="sortBtn" class="flex items-center justify-center w-10 h-10 bg-surface-container-low border border-outline-variant text-on-surface rounded-full hover:border-nasa-red transition-all cursor-pointer">
+                        <span class="material-symbols-outlined text-lg">swap_vert</span>
+                    </button>
+                    <div id="sortMenu" class="hidden absolute left-0 mt-2 bg-surface-container-low border border-outline-variant rounded-xl shadow-lg z-50 min-w-[140px] overflow-hidden">
+                        <button data-sort="shuffle" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">shuffle</span> SHUFFLE
+                        </button>
+                        <button data-sort="alpha-az" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">sort_by_alpha</span> A-Z
+                        </button>
+                        <button data-sort="alpha-za" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">sort_by_alpha</span> Z-A
+                        </button>
+                        <button data-sort="chrono-new" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">schedule</span> NEWEST
+                        </button>
+                        <button data-sort="chrono-old" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">history</span> OLDEST
+                        </button>
+                    </div>
+                </div>
+                <div class="text-sm font-bold tech-label text-on-surface-variant" id="resultsCount">Establishing Link...</div>
+            </div>
             <div class="relative">
                 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-base">search</span>
                 <input id="searchInput" class="search-input w-full focus:ring-0 rounded-full" placeholder="Search archive..." type="text">
@@ -236,35 +262,6 @@
     
     <!-- Main Grid Area -->
     <div class="flex-grow">
-        <!-- Page Title & Results Count -->
-        <div class="mb-10 pb-6 border-b border-outline-variant flex justify-between items-baseline flex-wrap gap-4">
-            <h1 class="text-4xl font-bold tracking-tight text-on-surface uppercase font-display">Projects</h1>
-            <div class="flex items-center gap-4">
-                <div class="relative" id="sortDropdown">
-                    <button id="sortBtn" class="flex items-center justify-center w-10 h-10 bg-surface-container-low border border-outline-variant text-on-surface rounded-full hover:border-nasa-red transition-all cursor-pointer">
-                        <span class="material-symbols-outlined text-lg">swap_vert</span>
-                    </button>
-                    <div id="sortMenu" class="hidden absolute right-0 mt-2 bg-surface-container-low border border-outline-variant rounded-xl shadow-lg z-50 min-w-[140px] overflow-hidden">
-                        <button data-sort="shuffle" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                            <span class="material-symbols-outlined text-base">shuffle</span> SHUFFLE
-                        </button>
-                        <button data-sort="alpha-az" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                            <span class="material-symbols-outlined text-base">sort_by_alpha</span> A-Z
-                        </button>
-                        <button data-sort="alpha-za" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                            <span class="material-symbols-outlined text-base">sort_by_alpha</span> Z-A
-                        </button>
-                        <button data-sort="chrono-new" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                            <span class="material-symbols-outlined text-base">schedule</span> NEWEST
-                        </button>
-                        <button data-sort="chrono-old" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                            <span class="material-symbols-outlined text-base">history</span> OLDEST
-                        </button>
-                    </div>
-                </div>
-                <div class="text-sm font-bold tech-label text-on-surface-variant" id="resultsCount">Establishing Link...</div>
-            </div>
-        </div>
         <!-- Results Grid (Masonry Columns) -->
         <div class="flex gap-8" id="archive-grid">
             <!-- Dynamic cards injected by JS -->
