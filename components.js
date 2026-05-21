@@ -74,7 +74,7 @@ function renderFooter(options = {}) {
                 </div>
 
                 <!-- Link Columns & Socials -->
-                <div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-8 lg:pt-20">
                     <!-- Col 1 -->
                     <ul class="flex flex-col gap-4 text-[13px] font-bold">
                         <li><a href="https://www.nasa.gov/" target="_blank" class="hover:text-gray-300 transition-colors">Home</a></li>
