@@ -37,13 +37,14 @@ function renderHeader(options = {}) {
     const isArchiveActive = activePage === 'archive';
 
     return `
-    <header class="py-6 px-8 flex justify-between items-center sticky top-0 bg-surface/80 backdrop-blur-md z-50">
-        <a href="index.html" class="hover:opacity-85 transition-all">
-            <img src="Logo_NASA70_orizzontale.svg" alt="NASA 70" class="h-8 w-auto">
+    <header class="py-6 px-8 flex justify-between items-center relative z-50 bg-transparent">
+        <a href="https://www.nasa.gov" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-nasa-red transition-all pb-1 text-sm font-medium">go to nasa.gov</a>
+        <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hover:opacity-85 transition-all">
+            <img src="NASA_gov.png" alt="NASA Logo" class="h-10 w-auto">
         </a>
-        <nav class="flex gap-8 text-sm font-medium uppercase" style="font-family: 'Inter', sans-serif;">
-            <a class="${isArchiveActive ? 'text-nasa-red border-b border-nasa-red' : 'text-on-surface-variant hover:text-nasa-red'} transition-all pb-1" href="archive.html">PROJECTS</a>
-            <a class="text-on-surface-variant hover:text-nasa-red transition-all pb-1" href="${aboutHref}">ABOUT US</a>
+        <nav class="flex gap-8 text-sm font-medium" style="font-family: 'Inter', sans-serif;">
+            <a class="${isArchiveActive ? 'text-nasa-red border-b border-nasa-red' : 'text-on-surface-variant hover:text-nasa-red'} transition-all pb-1" href="archive.html">projects</a>
+            <a class="text-on-surface-variant hover:text-nasa-red transition-all pb-1" href="${aboutHref}">about us</a>
         </nav>
     </header>`;
 }
@@ -55,7 +56,7 @@ function renderHeader(options = {}) {
  */
 function renderFooter(options = {}) {
     return `
-    <footer class="bg-black text-white w-full border-t border-outline-variant mt-20 font-['Helvetica_Neue',Helvetica,Arial,sans-serif]">
+    <footer class="bg-black text-white w-full border-t border-outline-variant mt-20 font-['Inter',sans-serif]">
         <div class="max-w-[1920px] mx-auto px-6 md:px-12 py-16">
             <div class="flex flex-col lg:flex-row gap-12 lg:gap-8 justify-between pb-12">
                 <!-- Brand Col -->
