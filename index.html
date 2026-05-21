@@ -204,11 +204,10 @@
         <section class="w-full bg-surface py-24 px-4 md:px-margin" id="about-project">
             <div class="max-w-container-max-width mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-gutter">
                 <div class="col-span-1 md:col-span-4">
-                    <h2 class="text-headline-lg font-headline-lg uppercase text-on-surface mb-4">About this
-                        archive</h2>
+                    <h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">About this archive</h2>
                     <span
-                        class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] block mb-2 font-bold">Our
-                        Mission</span>
+                        class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] block mb-2 font-bold">What
+                        and why</span>
                 </div>
                 <div class="col-span-1 md:col-span-8">
                     <p class="text-body-md font-body-md text-on-surface-variant max-w-2xl leading-relaxed">
@@ -229,14 +228,16 @@
         <section class="w-full bg-surface py-24 px-4 md:px-margin" id="featured">
             <div class="max-w-container-max-width mx-auto flex flex-col gap-12 w-full">
                 <div class="w-full flex justify-between items-end">
-                    <div class="flex flex-col gap-2">
-                        <h2 class="text-2xl font-bold font-headline uppercase text-on-surface">Featured Projects</h2>
-                        <span class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E]">Selected by
+                    <div class="flex flex-col gap-4">
+                        <h2 class="text-headline-lg font-headline-lg text-on-surface">Featured projects</h2>
+                        <span
+                            class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] font-bold">Selected
+                            by
                             our experts</span>
                     </div>
-                    <a class="inline-flex items-center gap-2 text-on-surface font-label-sm text-label-sm uppercase tracking-widest hover:text-nasa-red transition-colors hidden md:block border-b border-nasa-red pb-1 font-bold"
+                    <a class="inline-flex items-center gap-2 text-on-surface font-label-sm text-label-sm tracking-widest hover:text-nasa-red transition-colors hidden md:block border-b border-nasa-red pb-1 font-bold"
                         href="archive.html">
-                        <span class="uppercase">View all</span>
+                        <span>View all</span>
                         <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                     </a>
                 </div>
@@ -255,15 +256,18 @@
         <!-- Random Project of the Day -->
         <section class="w-full bg-surface py-24 px-4 md:px-margin">
             <div class="max-w-container-max-width mx-auto w-full flex flex-col gap-12">
-                <div class="flex flex-col gap-2">
-                    <span class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] font-bold">Today</span>
-                    <h2 class="text-[32px] leading-[40px] font-bold font-headline text-on-surface">Project Of The Day</h2>
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-headline-lg font-headline-lg text-on-surface">Project Of The Day</h2>
+                    <span
+                        class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] font-bold">Today</span>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
-                    <div class="col-span-1 md:col-span-7 flex flex-col justify-center order-2 md:order-1 text-left pr-8">
+                    <div
+                        class="col-span-1 md:col-span-7 flex flex-col justify-center order-2 md:order-1 text-left pr-8">
                         <div class="flex flex-col gap-4">
                             <h3 id="random-project-title"
-                                class="text-[32px] leading-[40px] font-bold font-headline text-on-surface mt-2">Loading...</h3>
+                                class="text-[32px] leading-[40px] font-bold font-headline text-on-surface mt-2">
+                                Loading...</h3>
                             <p id="random-project-author"
                                 class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E]">Loading...
                             </p>
@@ -272,16 +276,16 @@
                                 Loading project details...
                             </p>
                             <a id="random-project-cta"
-                                class="inline-flex items-center gap-2 text-on-surface font-label-sm text-label-sm uppercase tracking-widest hover:text-nasa-red transition-colors mt-6 w-fit border-b border-[#E03A3E] pb-1 font-bold"
+                                class="inline-flex items-center gap-2 text-on-surface font-label-sm text-label-sm tracking-widest hover:text-nasa-red transition-colors mt-6 w-fit border-b border-[#E03A3E] pb-1 font-bold"
                                 href="archive.html">
-                                <span class="uppercase">Explore Project</span>
+                                <span>Explore project</span>
                                 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                             </a>
                         </div>
                     </div>
                     <div class="col-span-1 md:col-span-5 order-1 md:order-2">
                         <a id="random-project-link"
-                            class="block aspect-[16/10] w-full bg-surface-container relative overflow-hidden group hover:opacity-90 transition-colors rounded-2xl"
+                            class="block aspect-[16/10] w-full bg-surface-container relative overflow-hidden group hover:opacity-90 transition-colors rounded-2xl border border-outline-variant"
                             href="archive.html">
                             <img id="random-project-image" src="" alt="Project"
                                 class="absolute inset-0 w-full h-full object-cover halftone-img transition-all duration-700 rounded-2xl">
@@ -325,7 +329,7 @@
 
                     return `
                 <a class="flex flex-col gap-4 group cursor-pointer w-[85vw] md:w-[50vw] lg:w-[40vw] max-w-[800px] shrink-0 snap-start" href="${project.url || 'archive.html'}" target="_blank" rel="noopener noreferrer" draggable="false">
-                    <div class="aspect-[16/10] w-full bg-surface-container overflow-hidden relative group-hover:opacity-90 transition-colors rounded-2xl">
+                    <div class="aspect-[16/10] w-full bg-surface-container overflow-hidden relative group-hover:opacity-90 transition-colors rounded-2xl border border-outline-variant">
                         <img src="${imgSrc}" alt="${project.titolo || 'Project'}" draggable="false" class="absolute inset-0 w-full h-full object-cover halftone-img transition-transform duration-700 ease-out rounded-2xl" loading="lazy">
                     </div>
                     <div class="flex flex-col gap-2">
