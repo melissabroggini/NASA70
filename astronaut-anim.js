@@ -26,12 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const tempParticles = [];
 
         function sampleElement(img) {
-            if (!img.naturalWidth || !img.naturalHeight) return;
+            const nw = img.naturalWidth || 4267;
+            const nh = img.naturalHeight || 3200;
+            if (!nw || !nh) return;
             
             // Scale and center the astronaut nicely in the 1:1 square canvas
             const scale = 0.8; 
             const drawW = Math.ceil(w * scale);
-            const drawH = Math.ceil(drawW * (img.naturalHeight / img.naturalWidth));
+            const drawH = Math.ceil(drawW * (nh / nw));
             
             const elCanvas = document.createElement('canvas');
             elCanvas.width = drawW;
