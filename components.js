@@ -37,15 +37,17 @@ function renderHeader(options = {}) {
     const isArchiveActive = activePage === 'archive';
 
     return `
-    <header class="py-6 px-8 flex justify-between items-center relative z-50 bg-transparent">
-        <a href="https://www.nasa.gov" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-nasa-red transition-all pb-1 text-sm font-medium">go to nasa.gov</a>
-        <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hover:opacity-85 transition-all">
-            <img src="NASA_gov.png" alt="NASA Logo" class="h-10 w-auto">
-        </a>
-        <nav class="flex gap-8 text-sm font-medium" style="font-family: 'Inter', sans-serif;">
-            <a class="${isArchiveActive ? 'text-nasa-red border-b border-nasa-red' : 'text-on-surface-variant hover:text-nasa-red'} transition-all pb-1" href="archive.html">projects</a>
-            <a class="text-on-surface-variant hover:text-nasa-red transition-all pb-1" href="${aboutHref}">about us</a>
-        </nav>
+    <header class="py-6 px-4 md:px-margin relative z-50 bg-transparent w-full">
+        <div class="max-w-container-max-width mx-auto flex justify-between items-center relative w-full">
+            <a href="https://www.nasa.gov" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-nasa-red transition-all pb-1 text-sm font-medium">go to nasa.gov</a>
+            <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hover:opacity-85 transition-all">
+                <img src="NASA_gov.png" alt="NASA Logo" class="h-10 w-auto">
+            </a>
+            <nav class="flex gap-8 text-sm font-medium" style="font-family: 'Inter', sans-serif;">
+                <a class="${isArchiveActive ? 'text-nasa-red border-b border-nasa-red' : 'text-on-surface-variant hover:text-nasa-red'} transition-all pb-1" href="archive.html">projects</a>
+                <a class="text-on-surface-variant hover:text-nasa-red transition-all pb-1" href="${aboutHref}">about us</a>
+            </nav>
+        </div>
     </header>`;
 }
 
