@@ -279,13 +279,13 @@ function renderGrid(projectsToRender) {
                 <a href="${project.url}" target="_blank" rel="noopener noreferrer" class="flex flex-col h-full w-full">
                     <div class="relative overflow-hidden aspect-[16/10] bg-surface-container">
                         <img src="${project._imgSrc}" alt="${project.titolo}" class="w-full h-full object-cover halftone-img transition-transform duration-700 ease-out" loading="lazy">
-                        <div class="absolute top-4 right-4">
-                            <span class="text-[10px] font-bold text-white bg-nasa-red px-2 py-1 rounded-full">${project._dateStr}</span>
-                        </div>
                     </div>
                     <div class="p-6 flex-grow flex flex-col justify-between">
                         <div>
-                            <h3 class="text-lg font-bold leading-tight group-hover:text-primary transition-colors text-on-surface mb-2 uppercase font-display">${project.titolo}</h3>
+                            <div class="flex justify-between items-start mb-2 gap-4">
+                                <h3 class="text-lg font-bold leading-tight group-hover:text-primary transition-colors text-on-surface uppercase font-display">${project.titolo}</h3>
+                                <span class="text-[10px] font-bold text-nasa-red whitespace-nowrap shrink-0">${project._dateStr}</span>
+                            </div>
                             <p class="tech-label text-[10px] font-medium text-nasa-red mb-3 font-mono">${project.autore || 'NASA'}</p>
                             <p class="text-sm text-on-surface-variant/90 leading-relaxed mb-6 font-sans">${project.descrizione}</p>
                         </div>
