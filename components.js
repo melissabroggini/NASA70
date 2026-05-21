@@ -60,9 +60,9 @@ function renderFooter(options = {}) {
             <div class="flex flex-col lg:flex-row gap-12 lg:gap-8 justify-between pb-12">
                 <!-- Brand Col -->
                 <div class="lg:w-1/3 flex flex-col gap-6">
-                    <div class="w-16 h-auto">
+                    <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" class="w-16 h-auto block hover:opacity-80 transition-opacity" title="NASA Official Website">
                         ${NASA_LOGO_SVG_FOOTER.replace('w-8', 'w-16')}
-                    </div>
+                    </a>
                     <h2 class="text-2xl font-bold leading-tight tracking-tight">National Aeronautics and Space<br>Administration</h2>
                     <p class="text-[13px] text-gray-300 leading-relaxed max-w-sm mt-2">
                         NASA explores the unknown in air and space, innovates for the benefit of humanity, and inspires the world through discovery.
