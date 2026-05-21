@@ -457,14 +457,7 @@ window.resetFilters = () => {
     const searchInput = document.getElementById('searchInput');
     if (searchInput) searchInput.value = '';
 
-    const microSearchInput = document.getElementById('microSearchInput');
-    if (microSearchInput) {
-        microSearchInput.value = '';
-        const microContainer = document.getElementById('microContainer');
-        if (microContainer) {
-            microContainer.querySelectorAll('button').forEach(btn => btn.classList.remove('hidden'));
-        }
-    }
+
 
     renderFilterButtons();
     const filtered = filterProjects();
@@ -489,36 +482,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const microSearchInput = document.getElementById('microSearchInput');
-    if (microSearchInput) {
-        microSearchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase().trim();
-            const microContainer = document.getElementById('microContainer');
-            if (!microContainer) return;
-            const buttons = Array.from(microContainer.querySelectorAll('button'));
 
-            if (searchTerm === '') {
-                buttons.forEach(btn => {
-                    btn.classList.remove('hidden');
-                    microContainer.appendChild(btn);
-                });
-                return;
-            }
-
-            const startsWith = buttons.filter(btn => btn.innerText.toLowerCase().startsWith(searchTerm));
-            const contains = buttons.filter(btn => {
-                const text = btn.innerText.toLowerCase();
-                return text.includes(searchTerm) && !text.startsWith(searchTerm);
-            });
-
-            buttons.forEach(btn => btn.classList.add('hidden'));
-
-            [...startsWith, ...contains].forEach(btn => {
-                btn.classList.remove('hidden');
-                microContainer.appendChild(btn);
-            });
-        });
-    }
 
     const resetBtn = document.getElementById('resetFiltersBtn');
     if (resetBtn) {
@@ -554,6 +518,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderGrid(filtered);
                 updateTagChipStates();
             });
+        });
+    }
+
+    const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('mainContent');
+
+    if (toggleSidebarBtn && sidebar && mainContent) {
+        toggleSidebarBtn.addEventListener('click', () => {
+            // Check if currently expanded (has md:w-64)
+            const isExpanded = sidebar.classList.contains('md:w-64');
+            
+            if (isExpanded) {
+                // Collapse
+                sidebar.classList.remove('md:w-64', 'w-full');
+                sidebar.classList.add('w-0', 'md:w-0', 'opacity-0', 'pointer-events-none');
+                
+                mainContent.classList.remove('gap-12');
+                mainContent.classList.add('gap-0');
+            } else {
+                // Expand
+                sidebar.classList.remove('w-0', 'md:w-0', 'opacity-0', 'pointer-events-none');
+                sidebar.classList.add('md:w-64', 'w-full');
+                
+                mainContent.classList.remove('gap-0');
+                mainContent.classList.add('gap-12');
+            }
         });
     }
 });
