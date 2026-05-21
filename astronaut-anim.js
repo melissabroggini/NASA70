@@ -30,9 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const nh = img.naturalHeight || 3200;
             if (!nw || !nh) return;
             
-            // Scale and center the astronaut nicely in the 1:1 square canvas
+            // Base layout size for the visual logo is 596
+            const baseSize = 596;
             const scale = 0.8; 
-            const drawW = Math.ceil(w * scale);
+            const drawW = Math.ceil(baseSize * scale);
             const drawH = Math.ceil(drawW * (nh / nw));
             
             const elCanvas = document.createElement('canvas');
