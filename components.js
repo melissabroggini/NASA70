@@ -38,9 +38,8 @@ function renderHeader(options = {}) {
 
     return `
     <header class="border-b border-outline-variant py-6 px-8 flex justify-between items-center sticky top-0 bg-surface/80 backdrop-blur-md z-50">
-        <a href="index.html" class="flex items-center gap-3 hover:opacity-85 transition-all">
-            ${NASA_LOGO_SVG}
-            <span class="text-2xl font-bold tracking-tighter uppercase" style="font-family: 'Inter', sans-serif; line-height: 1;">NASA 70</span>
+        <a href="index.html" class="hover:opacity-85 transition-all">
+            <img src="Logo_NASA70_orizzontale.svg" alt="NASA 70" class="h-16 w-auto">
         </a>
         <nav class="flex gap-8 text-base font-bold tracking-tighter uppercase" style="font-family: 'Inter', sans-serif;">
             <a class="${isArchiveActive ? 'text-nasa-red border-b border-nasa-red' : 'text-on-surface-variant hover:text-nasa-red'} transition-all pb-1" href="archive.html">PROJECTS</a>
