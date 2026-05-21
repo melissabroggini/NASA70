@@ -254,36 +254,38 @@
         </section>
         <!-- Random Project of the Day -->
         <section class="w-full bg-surface py-24 px-4 md:px-margin">
-            <div class="max-w-container-max-width mx-auto w-full">
-                <h2 class="text-2xl font-bold font-headline uppercase text-on-surface mb-12">Project of the Day
-                </h2>
+            <div class="max-w-container-max-width mx-auto w-full flex flex-col gap-12">
+                <div class="flex flex-col gap-2">
+                    <span class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] font-bold">Today</span>
+                    <h2 class="text-[32px] leading-[40px] font-bold font-headline text-on-surface">Project Of The Day</h2>
+                </div>
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
-                    <div class="col-span-1 md:col-span-8">
+                    <div class="col-span-1 md:col-span-7 flex flex-col justify-center order-2 md:order-1 text-left pr-8">
+                        <div class="flex flex-col gap-4">
+                            <h3 id="random-project-title"
+                                class="text-[32px] leading-[40px] font-bold font-headline text-on-surface mt-2">Loading...</h3>
+                            <p id="random-project-author"
+                                class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E]">Loading...
+                            </p>
+                            <p id="random-project-description"
+                                class="text-body-md font-body-md text-on-surface-variant leading-relaxed mt-2 max-w-xl">
+                                Loading project details...
+                            </p>
+                            <a id="random-project-cta"
+                                class="inline-flex items-center gap-2 text-on-surface font-label-sm text-label-sm uppercase tracking-widest hover:text-nasa-red transition-colors mt-6 w-fit border-b border-[#E03A3E] pb-1 font-bold"
+                                href="archive.html">
+                                <span class="uppercase">Explore Project</span>
+                                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-span-1 md:col-span-5 order-1 md:order-2">
                         <a id="random-project-link"
                             class="block aspect-[16/10] w-full bg-surface-container relative overflow-hidden group hover:opacity-90 transition-colors rounded-2xl"
                             href="archive.html">
                             <img id="random-project-image" src="" alt="Project"
                                 class="absolute inset-0 w-full h-full object-cover halftone-img transition-all duration-700 rounded-2xl">
                         </a>
-                    </div>
-                    <div class="col-span-1 md:col-span-4 flex flex-col justify-end pt-8 md:pt-0">
-                        <div class="flex flex-col gap-6">
-                            <h3 id="random-project-title"
-                                class="text-headline-lg font-headline-lg text-on-surface uppercase">Loading...</h3>
-                            <p id="random-project-author"
-                                class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E]">Loading...
-                            </p>
-                            <p id="random-project-description"
-                                class="text-body-lg font-body-lg text-on-surface-variant">
-                                Loading project details...
-                            </p>
-                            <a id="random-project-cta"
-                                class="inline-flex items-center gap-2 text-on-surface font-label-sm text-label-sm uppercase tracking-widest hover:text-nasa-red transition-colors mt-4 w-fit border-b border-nasa-red pb-1 font-bold"
-                                href="archive.html">
-                                <span class="uppercase">Explore project</span>
-                                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -328,7 +330,7 @@
                     </div>
                     <div class="flex flex-col gap-2">
                         <div class="text-label-sm font-label-sm text-[#E03A3E] uppercase tracking-wider">${project.autore || 'NASA'}</div>
-                        <h3 class="text-headline-md font-headline-md text-on-surface group-hover:text-nasa-red transition-colors uppercase">${project.titolo || 'Untitled Project'}</h3>
+                        <h3 class="text-headline-md font-headline-md text-on-surface group-hover:text-nasa-red transition-colors">${project.titolo ? project.titolo.charAt(0).toUpperCase() + project.titolo.slice(1).toLowerCase() : 'Untitled Project'}</h3>
                         <p class="text-body-md font-body-md text-on-surface-variant line-clamp-2">${project.descrizione || ''}</p>
                     </div>
                 </a>`;
@@ -420,7 +422,7 @@
                 image.alt = project.titolo || 'Project';
                 link.href = project.url || 'archive.html';
 
-                title.textContent = project.titolo || 'Untitled Project';
+                title.textContent = project.titolo ? project.titolo.charAt(0).toUpperCase() + project.titolo.slice(1).toLowerCase() : 'Untitled Project';
                 author.textContent = project.autore || 'NASA';
 
                 description.textContent = project.descrizione || 'No description available.';

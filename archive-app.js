@@ -283,7 +283,7 @@ function renderGrid(projectsToRender) {
                     <div class="p-6 flex-grow flex flex-col justify-between">
                         <div>
                             <div class="flex justify-between items-start mb-2 gap-4">
-                                <h3 class="text-lg font-bold leading-tight group-hover:text-primary transition-colors text-on-surface uppercase font-display">${project.titolo}</h3>
+                                <h3 class="text-lg font-bold leading-tight group-hover:text-primary transition-colors text-on-surface font-display">${project.titolo ? project.titolo.charAt(0).toUpperCase() + project.titolo.slice(1).toLowerCase() : 'Untitled Project'}</h3>
                                 <span class="text-[10px] font-bold text-nasa-red whitespace-nowrap shrink-0">${project._dateStr}</span>
                             </div>
                             <p class="tech-label text-[10px] font-medium text-nasa-red mb-3 font-mono">${project.autore || 'NASA'}</p>
@@ -447,6 +447,32 @@ function updateResultsState(visibleCount) {
 }
 
 /**
+ * Reset macro filters only.
+ */
+window.resetMacroFilters = () => {
+    selectedMacroTags.clear();
+    renderFilterButtons();
+    const filtered = filterProjects();
+    applySortToArray(filtered);
+    updateResultsState(filtered.length);
+    renderGrid(filtered);
+    updateTagChipStates();
+};
+
+/**
+ * Reset micro filters only.
+ */
+window.resetMicroFilters = () => {
+    selectedMicroTags.clear();
+    renderFilterButtons();
+    const filtered = filterProjects();
+    applySortToArray(filtered);
+    updateResultsState(filtered.length);
+    renderGrid(filtered);
+    updateTagChipStates();
+};
+
+/**
  * Full reset to default states.
  */
 window.resetFilters = () => {
@@ -456,8 +482,6 @@ window.resetFilters = () => {
 
     const searchInput = document.getElementById('searchInput');
     if (searchInput) searchInput.value = '';
-
-
 
     renderFilterButtons();
     const filtered = filterProjects();
@@ -482,13 +506,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-
-    const resetBtn = document.getElementById('resetFiltersBtn');
-    if (resetBtn) {
-        resetBtn.addEventListener('click', (e) => {
+    const resetMacroBtn = document.getElementById('resetMacroBtn');
+    if (resetMacroBtn) {
+        resetMacroBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            resetFilters();
+            resetMacroFilters();
+        });
+    }
+
+    const resetMicroBtn = document.getElementById('resetMicroBtn');
+    if (resetMicroBtn) {
+        resetMicroBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            resetMicroFilters();
         });
     }
 
