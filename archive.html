@@ -145,30 +145,6 @@
             box-shadow: 0 0 0 1px rgba(224, 58, 62, 0.15) !important;
             background-color: #1e2020 !important;
         }
-        #microSearchInput {
-            background-color: #1a1c1c !important;
-            border: 1px solid #44474c !important;
-            border-radius: 9999px !important;
-            color: #e2e2e2 !important;
-            padding: 0.35rem 0.5rem 0.35rem 1.75rem !important;
-            font-family: 'Inter', sans-serif !important;
-            font-size: 11px !important;
-            letter-spacing: 0.05em !important;
-            transition: all 0.3s ease !important;
-        }
-        #microSearchInput::placeholder {
-            color: #8e9196 !important;
-            font-family: 'Inter', sans-serif !important;
-            text-transform: uppercase !important;
-            letter-spacing: 0.1em !important;
-            font-size: 10px !important;
-        }
-        #microSearchInput:focus {
-            outline: none !important;
-            border-color: #E03A3E !important;
-            box-shadow: 0 0 0 1px rgba(224, 58, 62, 0.15) !important;
-            background-color: #1e2020 !important;
-        }
         
         .card-border-treatment {
             border: 1px solid theme('colors.outline-variant');
@@ -274,10 +250,6 @@
         <div class="max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
             <div class="flex items-center justify-between mb-4 sticky top-0 bg-surface z-10 gap-2">
                 <h2 class="tech-label text-[10px] font-bold text-nasa-red" style="margin-right: 30px;">TAG MICRO</h2>
-                <div class="relative flex-1 pr-4">
-                    <span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-xs pointer-events-none">search</span>
-                    <input id="microSearchInput" class="w-full focus:ring-0" placeholder="Search" type="text">
-                </div>
             </div>
             <div class="flex flex-wrap gap-2" id="microContainer">
                 <!-- Dynamic types injected by JS -->
