@@ -41,7 +41,7 @@ function renderHeader(options = {}) {
         <div class="max-w-container-max-width mx-auto flex justify-between items-center relative w-full">
             <a href="https://www.nasa.gov" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-nasa-red transition-all pb-1 text-sm font-medium">Go to nasa.gov</a>
             <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hover:opacity-85 transition-all">
-                <img src="NASA_gov.png" alt="NASA Logo" class="h-12 w-auto">
+                <img src="Immagini/NASA_gov.png" alt="NASA Logo" class="h-12 w-auto">
             </a>
             <nav class="flex gap-8 text-sm font-medium" style="font-family: 'Inter', sans-serif;">
                 <a class="${isArchiveActive ? 'text-nasa-red border-b border-nasa-red' : 'text-on-surface-variant hover:text-nasa-red'} transition-all pb-1" href="archive.html">Projects</a>
@@ -64,7 +64,7 @@ function renderFooter(options = {}) {
                 <!-- Brand Col -->
                 <div class="lg:w-1/3 flex flex-col gap-6">
                     <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity" title="NASA Official Website">
-                        <img src="NASA_gov.png" alt="NASA Logo" class="h-16 w-auto">
+                        <img src="Immagini/NASA_gov.png" alt="NASA Logo" class="h-16 w-auto">
                     </a>
                     <h2 class="text-2xl font-bold leading-tight tracking-tight">National Aeronautics and Space<br>Administration</h2>
                     <p class="text-[13px] text-gray-300 leading-relaxed max-w-sm mt-2">
