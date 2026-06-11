@@ -176,8 +176,8 @@
     <div id="site-header"></div>
     <main class="flex-grow flex flex-col items-center justify-start w-full">
         <!-- Hero Section -->
-        <section class="w-full bg-surface py-24 px-4 md:px-margin">
-            <div class="max-w-container-max-width mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+        <section class="w-full bg-surface min-h-[90vh] flex items-center py-20 px-4 md:px-margin">
+            <div class="max-w-container-max-width mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
                 <div class="col-span-1 md:col-span-6 flex flex-col items-start gap-8">
                     <h1 class="text-display-lg font-display-lg text-on-surface">Exploring the unknown<br>for 70 years
                     </h1>
@@ -201,77 +201,98 @@
             </div>
         </section>
         <!-- About Section -->
-        <section class="w-full bg-surface py-24 px-4 md:px-margin" id="about-project">
-            <div class="max-w-container-max-width mx-auto w-full flex flex-col gap-16">
-                <!-- First block: Title left, Text right -->
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-                    <div class="col-span-1 md:col-span-4">
-                        <h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">About this archive</h2>
-                        <span
-                            class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] block mb-2 font-bold">What
-                            and why</span>
-                    </div>
-                    <div class="col-span-1 md:col-span-8">
-                        <p class="text-body-md font-body-md text-on-surface-variant max-w-2xl leading-relaxed">
+        <section class="w-full bg-surface pt-48 pb-36 px-4 md:px-margin" id="about-project">
+            <div class="max-w-container-max-width mx-auto w-full">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-y-20 md:gap-y-28 gap-x-gutter items-center">
+                    <!-- Block 1: About this archive -->
+                    <div class="col-span-1 md:col-span-5 md:col-start-1 md:row-start-1 flex flex-col gap-4">
+                        <div class="flex flex-col gap-4">
+                            <h2 class="text-headline-lg font-headline-lg text-on-surface">About this archive</h2>
+                            <span
+                                class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] font-bold">What
+                                and why</span>
+                        </div>
+                        <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
                             For seventy years, NASA has redefined the boundaries of the possible, turning the unknown
-                            into
-                            knowledge. To celebrate this historic milestone, we challenged graphic and web designers
-                            from
-                            around the world to shape this legacy, creating digital platforms driven by their own
-                            artistic
-                            and methodological vision.
-
+                            into knowledge. To celebrate this historic milestone, we challenged graphic and web
+                            designers from around the world to shape this legacy, creating digital platforms driven by
+                            their own artistic and methodological vision.
+                            <br><br>
                             This archive is the official repository of that global initiative—a dedicated space to
-                            showcase
-                            how the epic journey of space exploration inspires contemporary design. Through clean
-                            geometries, rigorous grids, and interactive storytelling, these projects honor NASA’s past
-                            while
-                            inspiring future generations to keep looking up.
+                            showcase how the epic journey of space exploration inspires contemporary design. Through
+                            clean geometries, rigorous grids, and interactive storytelling, these projects honor NASA’s
+                            past while inspiring future generations to keep looking up.
                         </p>
                     </div>
-                </div>
-                <!-- Second block: Text left, Title right -->
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter pt-8">
-                    <div class="col-span-1 md:col-span-8 order-2 md:order-1">
-                        <p class="text-body-md font-body-md text-on-surface-variant max-w-2xl leading-relaxed">
+ 
+                    <!-- Block 2: The visual frontier -->
+                    <div class="col-span-1 md:col-span-5 md:col-start-8 md:row-start-1 flex flex-col gap-4">
+                        <div class="flex flex-col gap-4">
+                            <h2 class="text-headline-lg font-headline-lg text-on-surface">The visual frontier</h2>
+                            <span
+                                class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] font-bold">Who
+                                and how</span>
+                        </div>
+                        <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
                             Science and design have always shared a common trajectory: both begin with a blank expanse
                             and a desire to map the unknown. This archive bridges the gap between complex cosmic data
                             and human emotion. By translating telemetry, orbital mechanics, and stellar phenomena into
                             visual systems, the featured creators prove that data does not have to be cold to be
                             precise.
-
+                            <br><br>
                             Every layout, interactive interface, and typographic choice in this collection serves as a
                             modern lens on exploration, transforming raw discovery into an immersive, accessible
-                            experience. </p>
+                            experience.
+                        </p>
                     </div>
-                    <div class="col-span-1 md:col-span-4 order-1 md:order-2">
-                        <h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">The visual frontier</h2>
-                        <span
-                            class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] block mb-2 font-bold">Who
-                            and how</span>
+ 
+                    <!-- Center Image: Logo -->
+                    <div
+                        class="col-span-1 md:col-span-4 md:col-start-5 md:row-start-2 flex justify-center py-8 md:py-0">
+                        <img src="Immagini/Logo_NASA70_rosso_1.png" alt="NASA 70 Logo"
+                            class="w-48 h-48 md:w-64 md:h-64 object-contain filter drop-shadow-[0_0_25px_rgba(224,58,62,0.25)] hover:scale-105 transition-all duration-500">
                     </div>
-                </div>
-                <!-- Third block: Title center (aligned with top text start), Text right -->
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter pt-8">
-                    <div class="col-span-1 md:col-span-4 md:col-start-5 order-1">
-                        <h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">Radical systematization</h2>
-                        <span
-                            class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] block mb-2 font-bold">Goals
-                            and vision</span>
-                    </div>
-                    <div class="col-span-1 md:col-span-4 order-2">
+ 
+                    <!-- Block 3: Radical systematization -->
+                    <div class="col-span-1 md:col-span-5 md:col-start-1 md:row-start-3 flex flex-col gap-4">
+                        <div class="flex flex-col gap-4">
+                            <h2 class="text-headline-lg font-headline-lg text-on-surface">Radical systematization</h2>
+                            <span
+                                class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] font-bold">Goals
+                                and vision</span>
+                        </div>
                         <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
                             At the core of these celebratory projects lies a profound respect for structure. Just as
                             space exploration relies on absolute technical precision, these digital environments utilize
                             rigorous grid frameworks, mathematical proportions, and deliberate typographic hierarchies.
-
+                            <br><br>
                             Designers have stripped away the superfluous to let the vastness of the subject matter
                             breathe. The result is a series of highly functional, visually striking interfaces that
                             reflect the very nature of space flight—where every element has a vital purpose, and clarity
                             is paramount.
-
-                            Does this capture the tone and depth you are looking for, or should we steer the style in a
-                            different direction? </p>
+                        </p>
+                    </div>
+ 
+                    <!-- Block 4: Future horizons -->
+                    <div class="col-span-1 md:col-span-5 md:col-start-8 md:row-start-3 flex flex-col gap-4">
+                        <div class="flex flex-col gap-4">
+                            <h2 class="text-headline-lg font-headline-lg text-on-surface">An evolving anthology</h2>
+                            <span
+                                class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E] font-bold">Next
+                                frontiers</span>
+                        </div>
+                        <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                            Beyond a static retrospection, this archive functions as a living laboratory for the future
+                            of digital expression. The tools of the web—fluid layouts, generative visual systems, and
+                            real-time data integration—allow these projects to breathe and respond just as our
+                            understanding of the universe does. By intersecting mid-century modern design principles
+                            with modern technology, this collection demonstrates that the visual language of space
+                            exploration is not fixed in the era of Apollo, but remains a dynamic, expanding universe of
+                            its own. <br><br>
+                            The design languages of tomorrow will continue to evolve in tandem with our discoveries. As
+                            we venture deeper into the solar system, visual communicators will find new paradigms,
+                            interfaces, and visual stories to tell, bridging human curiosity with the vastness of space.
+                        </p>
                     </div>
                 </div>
             </div>
