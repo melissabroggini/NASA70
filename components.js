@@ -45,7 +45,7 @@ function renderHeader(options = {}) {
             </a>
             <nav class="flex gap-8 text-sm font-medium" style="font-family: 'Inter', sans-serif;">
                 <a class="${isArchiveActive ? 'text-nasa-red border-b border-nasa-red' : 'text-on-surface-variant hover:text-nasa-red'} transition-all pb-1" href="archive.html">projects</a>
-                <a class="text-on-surface-variant hover:text-nasa-red transition-all pb-1" href="${aboutHref}">about us</a>
+                <a class="text-on-surface-variant hover:text-nasa-red transition-all pb-1" href="${aboutHref}">About this archive</a>
             </nav>
         </div>
     </header>`;

@@ -187,6 +187,21 @@
             color: white !important;
             border-color: #E03A3E;
         }
+        
+        @keyframes telemetryFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-telemetry-card {
+            animation: telemetryFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col bg-background text-on-background overflow-x-hidden">
@@ -196,33 +211,35 @@
 
 <main class="flex-grow flex flex-col px-4 md:px-margin py-12 gap-8 max-w-[1920px] mx-auto w-full">
     <!-- Top Bar -->
-    <div class="flex items-center gap-4 w-full">
-        <div class="relative" id="sortDropdown">
-            <button id="sortBtn" class="flex items-center justify-center w-10 h-10 bg-surface-container-low border border-outline-variant text-on-surface rounded-full hover:border-nasa-red transition-all cursor-pointer">
-                <span class="material-symbols-outlined text-lg">swap_vert</span>
-            </button>
-            <div id="sortMenu" class="hidden absolute left-0 mt-2 bg-surface-container-low border border-outline-variant rounded-xl shadow-lg z-50 min-w-[140px] overflow-hidden">
-                <button data-sort="shuffle" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                    <span class="material-symbols-outlined text-base">shuffle</span> SHUFFLE
-                </button>
-                <button data-sort="alpha-az" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                    <span class="material-symbols-outlined text-base">sort_by_alpha</span> A-Z
-                </button>
-                <button data-sort="alpha-za" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                    <span class="material-symbols-outlined text-base">sort_by_alpha</span> Z-A
-                </button>
-                <button data-sort="chrono-new" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                    <span class="material-symbols-outlined text-base">schedule</span> NEWEST
-                </button>
-                <button data-sort="chrono-old" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
-                    <span class="material-symbols-outlined text-base">history</span> OLDEST
-                </button>
-            </div>
-        </div>
-        <div class="text-sm font-bold tech-label text-on-surface-variant" id="resultsCount">Establishing Link...</div>
+    <div class="flex justify-between items-center w-full">
         <button id="toggleSidebarBtn" class="flex items-center justify-center w-10 h-10 bg-surface-container-low border border-outline-variant text-on-surface rounded-full hover:border-nasa-red transition-all cursor-pointer">
             <span class="material-symbols-outlined text-lg">menu</span>
         </button>
+        <div class="flex items-center gap-4">
+            <div class="text-sm font-bold tech-label text-on-surface-variant" id="resultsCount">Establishing Link...</div>
+            <div class="relative" id="sortDropdown">
+                <button id="sortBtn" class="flex items-center justify-center w-10 h-10 bg-surface-container-low border border-outline-variant text-on-surface rounded-full hover:border-nasa-red transition-all cursor-pointer">
+                    <span class="material-symbols-outlined text-lg">swap_vert</span>
+                </button>
+                <div id="sortMenu" class="hidden absolute right-0 mt-2 bg-surface-container-low border border-outline-variant rounded-xl shadow-lg z-50 min-w-[140px] overflow-hidden">
+                    <button data-sort="shuffle" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">shuffle</span> SHUFFLE
+                    </button>
+                    <button data-sort="alpha-az" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">sort_by_alpha</span> A-Z
+                    </button>
+                    <button data-sort="alpha-za" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">sort_by_alpha</span> Z-A
+                    </button>
+                    <button data-sort="chrono-new" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">schedule</span> NEWEST
+                    </button>
+                    <button data-sort="chrono-old" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">history</span> OLDEST
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Content Area -->
@@ -263,10 +280,15 @@
         </aside>
         
         <!-- Main Grid Area -->
-        <div class="flex-grow transition-all duration-500 min-w-0">
+        <div class="flex-grow transition-all duration-500 min-w-0 flex flex-col items-center">
             <!-- Results Grid (Masonry Columns) -->
-            <div class="flex gap-8" id="archive-grid">
+            <div class="flex gap-8 w-full" id="archive-grid">
                 <!-- Dynamic cards injected by JS -->
+            </div>
+            
+            <!-- Load More Container -->
+            <div id="load-more-container" class="mt-12 mb-8 flex justify-center w-full">
+                <!-- Dynamic Load More button here -->
             </div>
         </div>
     </div>

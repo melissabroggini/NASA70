@@ -8,6 +8,11 @@ let selectedMicroTags = new Set();
 let currentSearch = '';
 let currentSort = 'shuffle';
 
+// Pagination variables
+let currentFilteredProjects = [];
+let currentVisibleLimit = 15;
+let previousVisibleLimit = 0;
+
 const SORT_OPTIONS = {
     SHUFFLE: 'shuffle',
     ALPHA_AZ: 'alpha-az',
@@ -258,14 +263,23 @@ async function loadData() {
 /**
  * Populates grid with generated card DOM elements.
  */
-function renderGrid(projectsToRender) {
+function renderGrid(projectsToRender, isLoadMoreAction = false) {
+    if (!isLoadMoreAction) {
+        currentVisibleLimit = 15;
+        previousVisibleLimit = 0;
+    }
+    currentFilteredProjects = projectsToRender;
+
     if (!gridContainer) return;
+
+    // Slice projects to respect visible limit
+    const projectsToDisplay = projectsToRender.slice(0, currentVisibleLimit);
 
     const NUM_COLUMNS = 3;
     const columns = Array.from({ length: NUM_COLUMNS }, () => []);
 
     // Distribute projects across columns in round-robin for horizontal ordering
-    projectsToRender.forEach((project, index) => {
+    projectsToDisplay.forEach((project, index) => {
         const columnIndex = index % NUM_COLUMNS;
         columns[columnIndex].push(project);
     });
@@ -273,9 +287,13 @@ function renderGrid(projectsToRender) {
     // Build card HTML for each project
     const buildCardHTML = (project, index) => {
         const displayTags = [...project.macroTags, ...project.microTags].sort();
+        
+        // Determine whether to apply the fade-in/reveal animation class
+        const shouldAnimate = index >= previousVisibleLimit;
+        const animationClass = shouldAnimate ? 'animate-telemetry-card' : '';
 
         return `
-            <article data-id="${index}" class="project-card break-inside-avoid mb-8 group cursor-pointer rounded-xl overflow-hidden flex flex-col border border-white/20 hover:border-white/60 transition-all duration-300 bg-surface-container-low">
+            <article data-id="${index}" class="project-card ${animationClass} break-inside-avoid mb-8 group cursor-pointer rounded-xl overflow-hidden flex flex-col border border-white/20 hover:border-white/60 transition-all duration-300 bg-surface-container-low">
                 <a href="${project.url}" target="_blank" rel="noopener noreferrer" class="flex flex-col h-full w-full">
                     <div class="relative overflow-hidden aspect-[16/10] bg-surface-container">
                         <img src="${project._imgSrc}" alt="${project.titolo}" class="w-full h-full object-cover halftone-img transition-transform duration-700 ease-out" loading="lazy">
@@ -318,6 +336,31 @@ function renderGrid(projectsToRender) {
     }).join('');
 
     gridContainer.innerHTML = gridHTML;
+
+    // Render / hide Load More button
+    const loadMoreContainer = document.getElementById('load-more-container');
+    if (loadMoreContainer) {
+        if (projectsToRender.length > currentVisibleLimit) {
+            loadMoreContainer.innerHTML = `
+                <button id="loadMoreBtn" class="px-8 py-3.5 border-2 border-nasa-red bg-transparent text-nasa-red hover:bg-nasa-red hover:text-white font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded-full cursor-pointer shadow-[0_0_15px_rgba(224,58,62,0.1)] hover:shadow-[0_0_25px_rgba(224,58,62,0.4)]">
+                    LOAD MORE
+                </button>
+            `;
+            document.getElementById('loadMoreBtn').addEventListener('click', handleLoadMore);
+        } else {
+            loadMoreContainer.innerHTML = '';
+        }
+    }
+}
+
+/**
+ * Handle Load More click
+ */
+function handleLoadMore() {
+    previousVisibleLimit = currentVisibleLimit;
+    currentVisibleLimit += 15;
+    renderGrid(currentFilteredProjects, true);
+    updateTagChipStates();
 }
 
 /**
