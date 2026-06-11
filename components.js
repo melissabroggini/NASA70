@@ -39,12 +39,12 @@ function renderHeader(options = {}) {
     return `
     <header class="py-6 px-4 md:px-margin relative z-50 bg-transparent w-full">
         <div class="max-w-container-max-width mx-auto flex justify-between items-center relative w-full">
-            <a href="https://www.nasa.gov" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-nasa-red transition-all pb-1 text-sm font-medium">go to nasa.gov</a>
+            <a href="https://www.nasa.gov" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-nasa-red transition-all pb-1 text-sm font-medium">Go to nasa.gov</a>
             <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hover:opacity-85 transition-all">
-                <img src="NASA_gov.png" alt="NASA Logo" class="h-10 w-auto">
+                <img src="NASA_gov.png" alt="NASA Logo" class="h-12 w-auto">
             </a>
             <nav class="flex gap-8 text-sm font-medium" style="font-family: 'Inter', sans-serif;">
-                <a class="${isArchiveActive ? 'text-nasa-red border-b border-nasa-red' : 'text-on-surface-variant hover:text-nasa-red'} transition-all pb-1" href="archive.html">projects</a>
+                <a class="${isArchiveActive ? 'text-nasa-red border-b border-nasa-red' : 'text-on-surface-variant hover:text-nasa-red'} transition-all pb-1" href="archive.html">Projects</a>
                 <a class="text-on-surface-variant hover:text-nasa-red transition-all pb-1" href="${aboutHref}">About this archive</a>
             </nav>
         </div>
@@ -63,8 +63,8 @@ function renderFooter(options = {}) {
             <div class="flex flex-col lg:flex-row gap-12 lg:gap-8 justify-between pb-12">
                 <!-- Brand Col -->
                 <div class="lg:w-1/3 flex flex-col gap-6">
-                    <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" class="w-16 h-auto block hover:opacity-80 transition-opacity" title="NASA Official Website">
-                        ${NASA_LOGO_SVG_FOOTER.replace('w-8', 'w-16')}
+                    <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity" title="NASA Official Website">
+                        <img src="NASA_gov.png" alt="NASA Logo" class="h-16 w-auto">
                     </a>
                     <h2 class="text-2xl font-bold leading-tight tracking-tight">National Aeronautics and Space<br>Administration</h2>
                     <p class="text-[13px] text-gray-300 leading-relaxed max-w-sm mt-2">
@@ -72,7 +72,7 @@ function renderFooter(options = {}) {
                     </p>
                     <a href="https://www.nasa.gov/about-nasas-mission/" target="_blank" class="text-[14px] font-bold hover:text-gray-300 transition-colors mt-2">About NASA's Mission</a>
                     <a href="https://www.nasa.gov/careers/" target="_blank" class="text-[14px] font-bold hover:text-gray-300 transition-colors flex items-center mt-2 group w-fit">
-                        Join Us <span class="material-symbols-outlined text-nasa-red ml-2 group-hover:translate-x-1 transition-transform" style="font-variation-settings: 'FILL' 1;">arrow_circle_right</span>
+                        Join Us <svg class="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform text-nasa-red" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M12 16v-3H7v-2h5V8l4 4-4 4z" fill="white"/></svg>
                     </a>
                 </div>
 
