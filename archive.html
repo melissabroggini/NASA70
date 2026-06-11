@@ -76,6 +76,9 @@
                         "container-max-width": "1920px",
                         gutter: "24px"
                     },
+                    maxWidth: {
+                        "container-max-width": "1920px"
+                    },
                     fontFamily: {
                         "display-lg": ["Inter", "sans-serif"],
                         "headline-lg": ["Inter", "sans-serif"],
@@ -209,8 +212,9 @@
 <!-- Header placeholder -->
 <div id="site-header"></div>
 
-<main class="flex-grow flex flex-col px-4 md:px-margin py-12 gap-8 max-w-[1920px] mx-auto w-full">
-    <!-- Top Bar -->
+<main class="flex-grow flex flex-col px-4 md:px-margin py-12 w-full">
+    <div class="max-w-container-max-width mx-auto w-full flex flex-col gap-8">
+        <!-- Top Bar -->
     <div class="flex justify-between items-center w-full">
         <button id="toggleSidebarBtn" class="flex items-center justify-center w-10 h-10 bg-surface-container-low border border-outline-variant text-on-surface rounded-full hover:border-nasa-red transition-all cursor-pointer">
             <span class="material-symbols-outlined text-lg">menu</span>
@@ -291,6 +295,7 @@
                 <!-- Dynamic Load More button here -->
             </div>
         </div>
+    </div>
     </div>
 </main>
     <!-- Footer placeholder -->
