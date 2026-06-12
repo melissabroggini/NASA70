@@ -602,6 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleSidebarBtn.addEventListener('click', () => {
             // Check if currently expanded (has md:w-64)
             const isExpanded = sidebar.classList.contains('md:w-64');
+            const iconEl = toggleSidebarBtn.querySelector('.material-symbols-outlined');
             
             if (isExpanded) {
                 // Collapse
@@ -610,6 +611,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 mainContent.classList.remove('gap-12');
                 mainContent.classList.add('gap-0');
+                
+                if (iconEl) iconEl.textContent = 'arrow_back';
             } else {
                 // Expand
                 sidebar.classList.remove('w-0', 'md:w-0', 'opacity-0', 'pointer-events-none');
@@ -617,6 +620,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 mainContent.classList.remove('gap-0');
                 mainContent.classList.add('gap-12');
+                
+                if (iconEl) iconEl.textContent = 'arrow_forward';
             }
         });
     }
