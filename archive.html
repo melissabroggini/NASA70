@@ -223,7 +223,16 @@
             <div class="text-sm font-bold tech-label text-on-surface-variant" id="resultsCount">Establishing Link...</div>
             <div class="relative" id="sortDropdown">
                 <button id="sortBtn" class="flex items-center justify-center w-10 h-10 bg-surface-container-low border border-outline-variant text-on-surface rounded-full hover:border-nasa-red transition-all cursor-pointer">
-                    <span class="material-symbols-outlined text-lg">swap_vert</span>
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-none stroke-current" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Downward arrow on the left -->
+                        <line x1="5" y1="4" x2="5" y2="20" />
+                        <polyline points="2,17 5,20 8,17" />
+                        <!-- Four horizontal lines of decreasing lengths on the right -->
+                        <line x1="10" y1="5" x2="22" y2="5" />
+                        <line x1="10" y1="10" x2="19" y2="10" />
+                        <line x1="10" y1="15" x2="16" y2="15" />
+                        <line x1="10" y1="20" x2="13" y2="20" />
+                    </svg>
                 </button>
                 <div id="sortMenu" class="hidden absolute right-0 mt-2 bg-surface-container-low border border-outline-variant rounded-xl shadow-lg z-50 min-w-[140px] overflow-hidden">
                     <button data-sort="shuffle" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
