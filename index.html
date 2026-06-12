@@ -344,9 +344,6 @@
                             <h3 id="random-project-title"
                                 class="text-[32px] leading-[40px] font-bold font-headline text-on-surface mt-2">
                                 Loading...</h3>
-                            <p id="random-project-author"
-                                class="text-label-sm font-label-sm uppercase tracking-widest text-[#E03A3E]">Loading...
-                            </p>
                             <p id="random-project-description"
                                 class="text-body-md font-body-md text-on-surface-variant leading-relaxed mt-2 max-w-xl">
                                 Loading project details...
@@ -354,7 +351,7 @@
                             <a id="random-project-cta"
                                 class="inline-flex items-center gap-2 text-on-surface font-label-sm text-label-sm tracking-widest hover:text-nasa-red transition-colors mt-6 w-fit border-b border-[#E03A3E] pb-1 font-bold"
                                 href="archive.html">
-                                <span>Explore project</span>
+                                <span>View full project</span>
                                 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                             </a>
                         </div>
@@ -482,7 +479,6 @@
             const link = document.getElementById('random-project-link');
             const image = document.getElementById('random-project-image');
             const title = document.getElementById('random-project-title');
-            const author = document.getElementById('random-project-author');
             const description = document.getElementById('random-project-description');
             const cta = document.getElementById('random-project-cta');
 
@@ -503,7 +499,6 @@
                 link.href = project.url || 'archive.html';
 
                 title.textContent = project.titolo ? project.titolo.charAt(0).toUpperCase() + project.titolo.slice(1).toLowerCase() : 'Untitled Project';
-                author.textContent = project.autore || 'NASA';
 
                 description.textContent = project.descrizione || 'No description available.';
 
