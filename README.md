@@ -11,7 +11,7 @@ Autore: Melissa Broggini \
 
 
 ## Introduzione e tema
-In occasione del 70° anniversario della NASA, il progetto sviluppa una piattaforma web celebrativa di terze parti volta a raccogliere e mostrare al pubblico progetti di visual design provenienti da grafici di tutto il mondo. Sviluppato nell'ambito del corso di Interaction Design presso la SUPSI, l'artefatto non si configura come un portfolio personale, bensì come un archivio globale e istituzionale.
+In occasione del 70° anniversario della NASA, il progetto sviluppa una piattaforma web celebrativa di terze parti volta a raccogliere e mostrare al pubblico progetti di visual design provenienti da grafici di tutto il mondo. L'artefatto non si configura come un portfolio personale, bensì come un archivio globale e istituzionale.
 
 ## Riferimenti progettuali
 Il design adotta rigorosamente il codice comunicativo e i pattern strutturali tipici della comunicazione ufficiale della NASA. L'architettura dell'header e del footer è stata modellata in perfetta analogia con il sito ufficiale per conferire autorevolezza e credibilità istituzionale alla piattaforma, garantendo una familiarità immediata per l'utente.
@@ -26,9 +26,9 @@ Il design adotta rigorosamente il codice comunicativo e i pattern strutturali ti
 ## Tecnologia usata
 L'implementazione tecnica è stata realizzata interamente tramite codice semantico e logico pulito:
 
-— HTML5 per l'architettura dei contenuti e metadati.
+— HTML per l'architettura dei contenuti e metadati.
 
-— JavaScript (ES6+) per la gestione dinamica dei filtri, dell'ordinamento delle card e dell'interazione asincrona.
+— JavaScript per la gestione dinamica dei filtri, dell'ordinamento delle card e dell'interazione asincrona.
 
 — Antigravity come framework/libreria core per lo sviluppo coordinato e la programmazione dell'intero ecosistema di codice del sito.
 
