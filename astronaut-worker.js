@@ -6,6 +6,9 @@
 let canvas, ctx, spriteSheet;
 const spriteSize = 12;
 let particlesBuffer; // Float32Array
+let buffers = [];    // Array of Float32Array templates
+let currentImageIndex = 0;
+let hasSwappedThisCycle = false;
 let globalTimer = 10000;
 let lastTime = 0;
 const CYCLE_DURATION = 20000;
@@ -22,14 +25,17 @@ onmessage = function(e) {
         if (payload.width) canvas.width = payload.width;
         if (payload.height) canvas.height = payload.height;
         ctx = canvas.getContext('2d', { alpha: true });
-        particlesBuffer = payload.buffer;
+        buffers = payload.buffers;
+        currentImageIndex = buffers.length - 1;
+        particlesBuffer = new Float32Array(buffers[currentImageIndex]);
         
         createSymbolSprites();
         requestAnimationFrame(animate);
-    } else if (type === 'updateBuffer') {
+    } else if (type === 'updateBuffers') {
         if (payload.width) canvas.width = payload.width;
         if (payload.height) canvas.height = payload.height;
-        particlesBuffer = payload.buffer;
+        buffers = payload.buffers;
+        particlesBuffer = new Float32Array(buffers[currentImageIndex]);
     }
 };
 
@@ -96,6 +102,28 @@ function animate(currentTime) {
 
     globalTimer += dt;
     let cycleProgress = (globalTimer % CYCLE_DURATION) / CYCLE_DURATION;
+
+    // Transition logic: swap target image during the fully scattered phase
+    if (buffers && buffers.length > 0) {
+        if (cycleProgress >= 0.50 && cycleProgress <= 0.60) {
+            if (!hasSwappedThisCycle) {
+                const nextImageIndex = (currentImageIndex + 1) % buffers.length;
+                const nextBuffer = buffers[nextImageIndex];
+                const count = particlesBuffer.length / STRIDE;
+                for (let i = 0; i < count; i++) {
+                    const base = i * STRIDE;
+                    particlesBuffer[base + 0] = nextBuffer[base + 0]; // homeX
+                    particlesBuffer[base + 1] = nextBuffer[base + 1]; // homeY
+                    particlesBuffer[base + 5] = nextBuffer[base + 5]; // symbolType
+                    particlesBuffer[base + 6] = nextBuffer[base + 6]; // opacityIndex
+                }
+                currentImageIndex = nextImageIndex;
+                hasSwappedThisCycle = true;
+            }
+        } else if (cycleProgress < 0.25) {
+            hasSwappedThisCycle = false;
+        }
+    }
 
     const count = particlesBuffer.length / STRIDE;
 
