@@ -46,7 +46,7 @@ function createSymbolSprites() {
     const offCanvas = new OffscreenCanvas(spriteSize * 50, spriteSize * 2);
     const offCtx = offCanvas.getContext('2d');
 
-    offCtx.font = 'bold 8px "DM Mono", monospace';
+    offCtx.font = 'bold 6px "DM Mono", monospace';
     offCtx.textAlign = 'center';
     offCtx.textBaseline = 'middle';
 
@@ -103,25 +103,42 @@ function animate(currentTime) {
     globalTimer += dt;
     let cycleProgress = (globalTimer % CYCLE_DURATION) / CYCLE_DURATION;
 
-    // Transition logic: swap target image during the fully scattered phase
+    let fromIndex = currentImageIndex;
+    let toIndex = (currentImageIndex + 1) % buffers.length;
+    let transitionT = 0;
+
+    // Transition logic: swap target image during the fully scattered phase [0.45, 0.55]
     if (buffers && buffers.length > 0) {
-        if (cycleProgress >= 0.50 && cycleProgress <= 0.60) {
-            if (!hasSwappedThisCycle) {
-                const nextImageIndex = (currentImageIndex + 1) % buffers.length;
-                const nextBuffer = buffers[nextImageIndex];
+        if (cycleProgress >= 0.45 && cycleProgress <= 0.55) {
+            transitionT = (cycleProgress - 0.45) / 0.10;
+            
+            // Swap home coordinates and symbol types at the midpoint of transition
+            if (cycleProgress >= 0.50 && !hasSwappedThisCycle) {
+                const nextBuffer = buffers[toIndex];
                 const count = particlesBuffer.length / STRIDE;
                 for (let i = 0; i < count; i++) {
                     const base = i * STRIDE;
                     particlesBuffer[base + 0] = nextBuffer[base + 0]; // homeX
                     particlesBuffer[base + 1] = nextBuffer[base + 1]; // homeY
                     particlesBuffer[base + 5] = nextBuffer[base + 5]; // symbolType
-                    particlesBuffer[base + 6] = nextBuffer[base + 6]; // opacityIndex
                 }
-                currentImageIndex = nextImageIndex;
                 hasSwappedThisCycle = true;
             }
-        } else if (cycleProgress < 0.25) {
+        } else if (cycleProgress > 0.55) {
+            // Finalize transition
+            if (hasSwappedThisCycle) {
+                currentImageIndex = (currentImageIndex + 1) % buffers.length;
+                hasSwappedThisCycle = false;
+            }
+            fromIndex = currentImageIndex;
+            toIndex = currentImageIndex;
+            transitionT = 0;
+        } else {
+            // Before transition window (cycleProgress < 0.45)
             hasSwappedThisCycle = false;
+            fromIndex = currentImageIndex;
+            toIndex = currentImageIndex;
+            transitionT = 0;
         }
     }
 
@@ -140,7 +157,17 @@ function animate(currentTime) {
         let escapeY = particlesBuffer[base + 3];
         let phaseOffset = particlesBuffer[base + 4];
         let symbolType = particlesBuffer[base + 5];
-        let opacityIndex = particlesBuffer[base + 6];
+        
+        // Interpolate opacity index during transition
+        let opacityIndex;
+        if (transitionT > 0) {
+            const op1 = buffers[fromIndex][base + 6];
+            const op2 = buffers[toIndex][base + 6];
+            opacityIndex = Math.round(op1 + (op2 - op1) * transitionT);
+        } else {
+            opacityIndex = buffers[currentImageIndex][base + 6];
+        }
+
         let noiseOffset = particlesBuffer[base + 7];
 
         // Glitch dei caratteri

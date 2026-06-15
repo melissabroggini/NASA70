@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const h = canvas.offsetHeight || 596;
 
         const isMobile = window.innerWidth < 768;
-        const step = isMobile ? 6 : 3.8; // density step
+        const targetParticles = isMobile ? 6000 : 12000;
+        const step = isMobile ? 2.5 : 1.5; // Density step: smaller for higher resolution
 
         // Helper function to sample an image to raw coordinates
         function sampleElement(img) {
@@ -86,26 +87,67 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const coords = [];
+            let minLum = Infinity;
+            let maxLum = -Infinity;
+
             for (let ly = 0; ly < drawH; ly += step) {
                 for (let lx = 0; lx < drawW; lx += step) {
                     let sample = sampleNeighborhood(lx, ly, 1); // radius = 1 for ultra-sharp details (no blur)
 
                     if (sample.found) {
-                        let normalizedLum = sample.avgLuminance / 255;
-                        // Opacity with 2.0 power curve and 0.10 base to keep dark parts visible but low-contrast
-                        let opacity = 0.10 + Math.pow(normalizedLum, 2.0) * 0.90;
-                        let opacityIndex = Math.min(Math.floor(opacity * 50), 49);
-                        if (opacityIndex < 0) opacityIndex = 0;
+                        const lum = sample.avgLuminance;
+                        if (lum < minLum) minLum = lum;
+                        if (lum > maxLum) maxLum = lum;
 
                         coords.push({
                             rawX: lx,
                             rawY: ly,
-                            opacityIndex: opacityIndex
+                            rawLum: lum
                         });
                     }
                 }
             }
-            return coords;
+
+            if (coords.length === 0) {
+                // Fallback in case no coords were found
+                const fallbackCoords = [];
+                for (let i = 0; i < targetParticles; i++) {
+                    fallbackCoords.push({ rawX: drawW / 2, rawY: drawH / 2, opacityIndex: 0 });
+                }
+                return fallbackCoords;
+            }
+
+            const selected = [];
+            const stepSize = coords.length / targetParticles;
+            for (let i = 0; i < targetParticles; i++) {
+                const idx = Math.min(Math.floor(i * stepSize), coords.length - 1);
+                selected.push(coords[idx]);
+            }
+
+            const lumRange = maxLum - minLum;
+            const tempOpacities = selected.map(pt => {
+                const normalizedLum = lumRange > 0 ? (pt.rawLum - minLum) / lumRange : 1.0;
+                return 0.05 + Math.pow(normalizedLum, 2.5) * 0.70;
+            });
+
+            const currentSum = tempOpacities.reduce((sum, val) => sum + val, 0);
+            const targetSum = targetParticles * 0.28; // Target average opacity of 0.28 (bright but structured)
+            const scaleFactor = targetSum / currentSum;
+
+            return selected.map((pt, idx) => {
+                let opacity = tempOpacities[idx] * scaleFactor;
+                // Clamp between 0.02 and 0.75 to prevent overexposure
+                opacity = Math.max(0.02, Math.min(opacity, 0.75));
+
+                let opacityIndex = Math.min(Math.floor(opacity * 50), 49);
+                if (opacityIndex < 0) opacityIndex = 0;
+
+                return {
+                    rawX: pt.rawX,
+                    rawY: pt.rawY,
+                    opacityIndex: opacityIndex
+                };
+            });
         }
 
         const allRawCoords = cachedImages.map(img => sampleElement(img));
