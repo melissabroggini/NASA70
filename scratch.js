@@ -1,2 +1,0 @@
-"document.addEventListener('DOMContentLoaded', () => {\n    const canvas = document.getElementById('astronautCanvas');\n    if (!canvas) return;\n    const ctx = canvas.getContext('2d');\n    const img = new Image();\n    img.src = 'Immagini/astronaut_halftone.png'
-<truncated 4941 bytes>
