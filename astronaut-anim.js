@@ -152,8 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const allRawCoords = cachedImages.map(img => sampleElement(img));
         
-        // Define target physical height in layout pixels (596 * 0.60 = 358px) to remain compact
-        const targetShapeHeight = 358;
+        // Define target physical height in layout pixels to remain compact
+        const targetShapeHeight = 450;
         
         const allSampledCoords = allRawCoords.map((rawCoords) => {
             if (rawCoords.length === 0) return [];
