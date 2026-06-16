@@ -26,6 +26,9 @@ Il design adotta rigorosamente il codice comunicativo e i pattern strutturali ti
 
 <img src="Immagini/Video_NASA70.gif" width="100%" alt="NASA70 Demo Video">
 
+<img src="Immagini/Img_1.jpg" width="100%" alt="NASA70 Interface Design 1">
+<img src="Immagini/Img_2.jpg" width="100%" alt="NASA70 Interface Design 2">
+
 ## Tecnologia usata
 L'implementazione tecnica è stata realizzata interamente tramite codice semantico e logico pulito:
 
