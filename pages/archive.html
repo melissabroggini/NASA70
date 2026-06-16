@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="scroll-smooth dark" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>NASA 70 - Projects Archive</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#b8c8dd",
+                        error: "#ffb4ab",
+                        "surface-container-highest": "#333535",
+                        outline: "#8e9196",
+                        "on-tertiary": "#2f3131",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed-variant": "#930016",
+                        "primary-container": "#102030",
+                        "on-background": "#e2e2e2",
+                        "on-secondary-fixed": "#410005",
+                        "surface-container": "#1e2020",
+                        "on-error": "#690005",
+                        "primary-fixed": "#d4e4fa",
+                        "inverse-on-surface": "#2f3131",
+                        "surface-container-high": "#282a2b",
+                        "outline-variant": "#44474c",
+                        "on-primary-fixed": "#0c1d2d",
+                        tertiary: "#c6c6c7",
+                        "on-primary-container": "#78889c",
+                        "tertiary-fixed": "#e2e2e2",
+                        surface: "#080808",
+                        "secondary-fixed": "#ffdad7",
+                        "on-tertiary-container": "#858787",
+                        background: "#080808",
+                        "tertiary-container": "#1d1f1f",
+                        "on-primary-fixed-variant": "#39485a",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface-dim": "#080808",
+                        "secondary-fixed-dim": "#ffb3ae",
+                        "on-surface-variant": "#c4c6cc",
+                        "primary-fixed-dim": "#b8c8dd",
+                        "surface-bright": "#38393a",
+                        "on-secondary": "#68000c",
+                        "inverse-surface": "#e2e2e2",
+                        "secondary-container": "#a4031a",
+                        "on-surface": "#e2e2e2",
+                        "inverse-primary": "#506072",
+                        "on-error-container": "#ffdad6",
+                        secondary: "#ffb3ae",
+                        "surface-variant": "#333535",
+                        "on-primary": "#223242",
+                        "on-secondary-container": "#ffaea8",
+                        "surface-tint": "#b8c8dd",
+                        "surface-container-lowest": "#0c0f0f",
+                        "surface-container-low": "#1a1c1c",
+                        "error-container": "#93000a",
+                        "nasa-red": "#E03A3E"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        lg: "1rem",
+                        xl: "1.5rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        margin: "64px",
+                        unit: "4px",
+                        "container-max-width": "1920px",
+                        gutter: "24px"
+                    },
+                    maxWidth: {
+                        "container-max-width": "1920px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "code-md": ["Inter", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                        mono: ["Inter", "monospace"],
+                        headline: ["Inter", "sans-serif"],
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                        label: ["Inter", "sans-serif"]
+                    },
+                    fontSize: {
+                        "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.08em", fontWeight: "500"}],
+                        "display-lg": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}],
+                        "code-md": ["14px", {lineHeight: "20px", fontWeight: "400"}],
+                        "headline-lg": ["32px", {lineHeight: "40px", fontWeight: "600"}],
+                        "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}],
+                        "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}],
+                        "label-md": ["14px", {lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500"}],
+                        "headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}]
+                    }
+                }
+            }
+        };
+    </script>
+    <style data-purpose="custom-styles">
+        body {
+            background-color: #080808;
+            color: #e2e2e2;
+            font-family: theme('fontFamily.sans');
+            -webkit-font-smoothing: antialiased;
+            line-height: 1;
+        }
+        
+        .tech-label {
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .search-input {
+            background-color: #1a1c1c !important;
+            border: 1px solid #44474c !important;
+            border-radius: 9999px;
+            color: #e2e2e2 !important;
+            padding: 0.6rem 0.75rem 0.6rem 2.25rem !important;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+        .search-input::placeholder {
+            color: #8e9196 !important;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 11px;
+        }
+        .search-input:focus {
+            outline: none !important;
+            border-color: #E03A3E !important;
+            box-shadow: 0 0 0 1px rgba(224, 58, 62, 0.15) !important;
+            background-color: #1e2020 !important;
+        }
+        
+        .card-border-treatment {
+            border: 1px solid theme('colors.outline-variant');
+            background: theme('colors.surface-container-low');
+            transition: all 0.3s ease;
+        }
+        
+        .card-border-treatment:hover {
+            border-color: theme('colors.primary');
+            box-shadow: 0 0 20px rgba(184, 200, 221, 0.05);
+        }
+ 
+        .halftone-img {
+            filter: grayscale(100%) contrast(1.1);
+            mix-blend-mode: luminosity;
+            transition: all 0.5s ease;
+        }
+        .group:hover .halftone-img {
+            filter: grayscale(0%) contrast(1.0);
+            mix-blend-mode: normal;
+        }
+ 
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: theme('colors.surface-container-low');
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: theme('colors.outline-variant');
+        }
+        .hidden-card {
+            display: none !important;
+        }
+        .tag-chip {
+            transition: all 0.2s ease;
+        }
+        .tag-active {
+            background-color: #E03A3E;
+            color: white !important;
+            border-color: #E03A3E;
+        }
+        
+        @keyframes telemetryFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-telemetry-card {
+            animation: telemetryFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-background text-on-background overflow-x-hidden">
+ 
+<!-- Header placeholder -->
+<div id="site-header"></div>
+ 
+<main class="flex-grow flex flex-col px-4 md:px-margin py-12 w-full">
+    <div class="max-w-container-max-width mx-auto w-full flex flex-col gap-8">
+        <!-- Top Bar -->
+    <div class="flex justify-between items-center w-full">
+        <button id="toggleSidebarBtn" class="flex items-center justify-center w-10 h-10 bg-surface-container-low border border-outline-variant text-on-surface rounded-full hover:border-nasa-red transition-all cursor-pointer">
+            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+        </button>
+        <div class="flex items-center gap-4">
+            <div class="text-sm font-bold tech-label text-on-surface-variant" id="resultsCount">Establishing Link...</div>
+            <div class="relative" id="sortDropdown">
+                <button id="sortBtn" class="flex items-center justify-center w-10 h-10 bg-surface-container-low border border-outline-variant text-on-surface rounded-full hover:border-nasa-red transition-all cursor-pointer">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-none stroke-current" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Downward arrow on the left -->
+                        <line x1="5" y1="4" x2="5" y2="20" />
+                        <polyline points="2,17 5,20 8,17" />
+                        <!-- Four horizontal lines of decreasing lengths on the right -->
+                        <line x1="10" y1="5" x2="22" y2="5" />
+                        <line x1="10" y1="10" x2="19" y2="10" />
+                        <line x1="10" y1="15" x2="16" y2="15" />
+                        <line x1="10" y1="20" x2="13" y2="20" />
+                    </svg>
+                </button>
+                <div id="sortMenu" class="hidden absolute right-0 mt-2 bg-surface-container-low border border-outline-variant rounded-xl shadow-lg z-50 min-w-[140px] overflow-hidden">
+                    <button data-sort="shuffle" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">shuffle</span> SHUFFLE
+                    </button>
+                    <button data-sort="alpha-az" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">sort_by_alpha</span> A-Z
+                    </button>
+                    <button data-sort="alpha-za" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">sort_by_alpha</span> Z-A
+                    </button>
+                    <button data-sort="chrono-new" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">schedule</span> NEWEST
+                    </button>
+                    <button data-sort="chrono-old" class="sort-option w-full text-left px-4 py-2.5 tech-label text-[10px] font-bold text-on-surface hover:bg-nasa-red hover:text-white transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">history</span> OLDEST
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- Content Area -->
+    <div class="flex flex-col md:flex-row gap-12 w-full transition-all duration-500" id="mainContent">
+        <!-- Sidebar Filters -->
+        <aside class="w-full md:w-64 flex-shrink-0 transition-all duration-500 overflow-hidden" id="sidebar">
+            <div id="sidebarFilters" class="space-y-10 min-w-[256px]">
+                <!-- Search Section -->
+                <div class="relative">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-base">search</span>
+                    <input id="searchInput" class="search-input w-full focus:ring-0 rounded-full" placeholder="Search archive..." type="text">
+                </div>
+                
+                <!-- TAG MACRO Filter -->
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="tech-label text-[10px] font-bold text-nasa-red">TAG MACRO</h2>
+                        <button id="resetMacroBtn" class="tech-label text-[10px] font-medium text-white/60 hover:text-nasa-red transition-colors cursor-pointer">RESET</button>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex flex-wrap gap-2" id="macroContainer">
+                            <!-- Dynamic statuses injected by JS -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- TAG MICRO Filter -->
+                <div class="max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+                    <div class="flex items-center justify-between mb-4 sticky top-0 bg-surface z-10 gap-2">
+                        <h2 class="tech-label text-[10px] font-bold text-nasa-red">TAG MICRO</h2>
+                        <button id="resetMicroBtn" class="tech-label text-[10px] font-medium text-white/60 hover:text-nasa-red transition-colors cursor-pointer">RESET</button>
+                    </div>
+                    <div class="flex flex-wrap gap-2" id="microContainer">
+                        <!-- Dynamic types injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Grid Area -->
+        <div class="flex-grow transition-all duration-500 min-w-0 flex flex-col items-center">
+            <!-- Results Grid (Masonry Columns) -->
+            <div class="flex gap-8 w-full" id="archive-grid">
+                <!-- Dynamic cards injected by JS -->
+            </div>
+            
+            <!-- Load More Container -->
+            <div id="load-more-container" class="mt-12 mb-8 flex justify-center w-full">
+                <!-- Dynamic Load More button here -->
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+    <!-- Footer placeholder -->
+    <div id="site-footer"></div>
+ 
+<script src="../js/components.js"></script>
+<script src="../js/archive-app.js?v=20260520_v2"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('site-header').outerHTML = renderHeader({ activePage: 'archive', aboutHref: '../index.html#about-project', pathPrefix: '../' });
+        document.getElementById('site-footer').outerHTML = renderFooter({ pathPrefix: '../' });
+    });
+</script>
+</body>
+</html>

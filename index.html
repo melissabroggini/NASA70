@@ -189,7 +189,7 @@
                         70th anniversary
                     </p>
                     <a class="inline-block px-8 py-4 border-2 border-nasa-red bg-transparent text-nasa-red hover:bg-nasa-red hover:text-white text-label-sm font-label-sm tracking-widest font-bold rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(224,58,62,0.1)] hover:shadow-[0_0_25px_rgba(224,58,62,0.4)]"
-                        href="archive.html">
+                        href="pages/archive.html">
                         View Projects
                     </a>
                 </div>
@@ -315,7 +315,7 @@
                             our experts</span>
                     </div>
                     <a class="inline-flex items-center gap-2 text-on-surface font-label-sm text-label-sm tracking-widest hover:text-nasa-red transition-colors hidden md:block border-b border-nasa-red pb-1 font-bold"
-                        href="archive.html">
+                        href="pages/archive.html">
                         <span>View all</span>
                         <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                     </a>
@@ -353,7 +353,7 @@
                             </p>
                             <a id="random-project-cta"
                                 class="inline-flex items-center gap-2 text-on-surface font-label-sm text-label-sm tracking-widest hover:text-nasa-red transition-colors mt-6 w-fit border-b border-[#E03A3E] pb-1 font-bold"
-                                href="archive.html">
+                                href="pages/archive.html">
                                 <span>View full project</span>
                                 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                             </a>
@@ -362,7 +362,7 @@
                     <div class="col-span-1 md:col-span-5 order-1 md:order-2">
                         <a id="random-project-link"
                             class="block aspect-[16/10] w-full bg-surface-container relative overflow-hidden group hover:opacity-90 transition-colors rounded-2xl border border-outline-variant"
-                            href="archive.html">
+                            href="pages/archive.html">
                             <img id="random-project-image" src="" alt="Project"
                                 class="absolute inset-0 w-full h-full object-cover halftone-img transition-all duration-700 rounded-2xl">
                         </a>
@@ -404,7 +404,7 @@
                         : 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop';
 
                     return `
-                <a class="flex flex-col gap-4 group cursor-pointer w-[85vw] md:w-[50vw] lg:w-[40vw] max-w-[800px] shrink-0 snap-start" href="${project.url || 'archive.html'}" target="_blank" rel="noopener noreferrer" draggable="false">
+                <a class="flex flex-col gap-4 group cursor-pointer w-[85vw] md:w-[50vw] lg:w-[40vw] max-w-[800px] shrink-0 snap-start" href="${project.url || 'pages/archive.html'}" target="_blank" rel="noopener noreferrer" draggable="false">
                     <div class="aspect-[16/10] w-full bg-surface-container overflow-hidden relative group-hover:opacity-90 transition-colors rounded-2xl border border-outline-variant">
                         <img src="${imgSrc}" alt="${project.titolo || 'Project'}" draggable="false" class="absolute inset-0 w-full h-full object-cover halftone-img transition-transform duration-700 ease-out rounded-2xl" loading="lazy">
                     </div>
@@ -499,13 +499,13 @@
 
                 image.src = imgSrc;
                 image.alt = project.titolo || 'Project';
-                link.href = project.url || 'archive.html';
+                link.href = project.url || 'pages/archive.html';
 
                 title.textContent = project.titolo ? project.titolo.charAt(0).toUpperCase() + project.titolo.slice(1).toLowerCase() : 'Untitled Project';
 
                 description.textContent = project.descrizione || 'No description available.';
 
-                cta.href = project.url || 'archive.html';
+                cta.href = project.url || 'pages/archive.html';
             } catch (error) {
                 console.error('Error loading random project:', error);
                 title.textContent = 'Unable to load project';
@@ -516,10 +516,10 @@
     </script>
 
     <!-- Components library -->
-    <script src="components.js"></script>
+    <script src="js/components.js"></script>
 
     <!-- Main astronaut character offscreen worker anim script -->
-    <script src="astronaut-anim.js"></script>
+    <script src="js/astronaut-anim.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Render header and footer via shared components

@@ -31,20 +31,21 @@ const NASA_LOGO_SVG_FOOTER = `
  * @param {Object} options - Configuration options
  * @param {string} options.activePage - 'archive' or 'index'
  * @param {string} options.aboutHref - Href for the About link (e.g., '#about-project' or 'index.html#about-project')
+ * @param {string} options.pathPrefix - Path prefix for resources (e.g., '../' or '')
  */
 function renderHeader(options = {}) {
-    const { activePage = 'index', aboutHref = '#about-project' } = options;
+    const { activePage = 'index', aboutHref = '#about-project', pathPrefix = '' } = options;
     const isArchiveActive = activePage === 'archive';
 
     return `
     <header class="py-6 px-4 md:px-margin relative z-50 bg-transparent w-full">
         <div class="max-w-container-max-width mx-auto flex justify-between items-center relative w-full">
             <a href="https://www.nasa.gov" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-nasa-red transition-all pb-1 text-sm font-medium">Go to nasa.gov</a>
-            <a href="index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hover:opacity-85 transition-all">
-                <img src="Immagini/NASA_gov.png" alt="NASA Logo" class="h-12 w-auto">
+            <a href="${pathPrefix}index.html" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hover:opacity-85 transition-all">
+                <img src="${pathPrefix}Immagini/NASA_gov.png" alt="NASA Logo" class="h-12 w-auto">
             </a>
             <nav class="flex gap-8 text-sm font-medium" style="font-family: 'Inter', sans-serif;">
-                <a class="${isArchiveActive ? 'text-nasa-red border-b border-nasa-red' : 'text-on-surface-variant hover:text-nasa-red'} transition-all pb-1" href="archive.html">Projects</a>
+                <a class="${isArchiveActive ? 'text-nasa-red border-b border-nasa-red' : 'text-on-surface-variant hover:text-nasa-red'} transition-all pb-1" href="${pathPrefix}pages/archive.html">Projects</a>
                 <a class="text-on-surface-variant hover:text-nasa-red transition-all pb-1" href="${aboutHref}">About this archive</a>
             </nav>
         </div>
@@ -54,9 +55,10 @@ function renderHeader(options = {}) {
 /**
  * Renders the shared site footer
  * @param {Object} options - Configuration options
- * @param {string} options.aboutHref - Href for the About link in footer
+ * @param {string} options.pathPrefix - Path prefix for resources (e.g., '../' or '')
  */
 function renderFooter(options = {}) {
+    const { pathPrefix = '' } = options;
     return `
     <footer class="bg-black text-white w-full border-t border-outline-variant mt-20 font-['Inter',sans-serif]">
         <div class="max-w-[1920px] mx-auto px-6 md:px-12 py-16">
@@ -64,7 +66,7 @@ function renderFooter(options = {}) {
                 <!-- Brand Col -->
                 <div class="lg:w-1/3 flex flex-col gap-6">
                     <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity" title="NASA Official Website">
-                        <img src="Immagini/NASA_gov.png" alt="NASA Logo" class="h-16 w-auto">
+                        <img src="${pathPrefix}Immagini/NASA_gov.png" alt="NASA Logo" class="h-16 w-auto">
                     </a>
                     <h2 class="text-2xl font-bold leading-tight tracking-tight">National Aeronautics and Space<br>Administration</h2>
                     <p class="text-[13px] text-gray-300 leading-relaxed max-w-sm mt-2">
