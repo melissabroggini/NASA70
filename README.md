@@ -24,6 +24,8 @@ Il design adotta rigorosamente il codice comunicativo e i pattern strutturali ti
 
 — Navigazione dell'Archivio (Page 'Projects'): Il menu dell'header porta all'archivio completo gestito con un sistema di layout a schede (cards). Sulla sinistra è integrata una barra di ricerca affiancata da un sistema di filtri a tag, mentre in alto a destra è posizionato il menu di ordinamento. Il caricamento è ottimizzato tramite un sistema Lazy Loading che mostra un massimo di 15 card alla volta, espandibili tramite il pulsante "Load more". Cliccando su una scheda si apre la pagina di dettaglio a schermo intero del singolo progetto.
 
+<video src="Immagini/Video_NASA70.mp4" controls width="100%"></video>
+
 ## Tecnologia usata
 L'implementazione tecnica è stata realizzata interamente tramite codice semantico e logico pulito:
 
