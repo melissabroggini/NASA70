@@ -16,7 +16,7 @@ Dal punto di vista del design, l'interfaccia adotta il codice comunicativo, i co
 ## 2. Contenuti e Relativa Strutturazione
 L'applicazione web è strutturata per guidare l'utente attraverso una narrazione sia visiva/interattiva che informativa/funzionale.
 
-### A. Landing Page ed Effetti Particellari (`index.html`)
+### A. Landing Page
 *   **Animazione Generativa**: All'accesso, un sistema di punti dinamici si scompone e si ricompone via codice per formare visivamente quattro grandi tappe storiche dell'esplorazione spaziale:
     1.  **L'Allunaggio (Programma Apollo)**
     2.  **Curiosity Rover**
@@ -24,13 +24,13 @@ L'applicazione web è strutturata per guidare l'utente attraverso una narrazione
     4.  **Lo Space Shuttle Columbia**
 *   **Call to Action**: Un pulsante dedicato consente di accedere direttamente all'archivio dei progetti.
 
-### B. Esplorazione della Home Page (`index.html` - Scrolling)
+### B. Esplorazione della Home Page
 Proseguendo con lo scorrimento della pagina, l'utente incontra:
 *   **About this Archive**: La sezione descrittiva che spiega la genesi, le motivazioni e lo scopo del portale.
 *   **Curated Showcase**: Una selezione curata dei migliori progetti grafici scelti da esperti del settore.
 *   **Project of the Day**: Un progetto singolo messo in evidenza giornalmente per dare visibilità ai singoli contributori.
 
-### C. Archivio Completo dei Progetti (`archive.html`)
+### C. Archivio Completo dei Progetti
 L'archivio è progettato per facilitare la ricerca e l'esplorazione:
 *   **Layout a Schede (Cards)**: Griglia per la visualizzazione delle anteprime dei progetti.
 *   **Filtri e Ricerca**:
