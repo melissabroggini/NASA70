@@ -42,7 +42,22 @@ L'archivio è progettato per facilitare la ricerca e l'esplorazione:
 
 ---
 
-## 3. Target del Progetto
+## 3. Design dell’interfaccia e modalità di interazione
+Il layout e la struttura visiva del sito sono stati progettati per integrarsi coerentemente con l'identità istituzionale della NASA, adottando elementi moderni e ad alta leggibilità.
+
+*   **Tipografia**:
+    *   **Inter**: Utilizzato come carattere principale per l'intera interfaccia (titoli, testi, etichette e dati tecnici) per garantire un aspetto pulito, moderno e altamente leggibile.
+    *   **Material Symbols Outlined**: Utilizzati per le icone e i simboli visivi del sistema.
+*   **Palette Cromatica**:
+    *   `#E03A3E` (**Nasa Red**): Il colore rosso ufficiale per i dettagli significativi, le chiamate all'azione (CTA) e gli stati attivi o hover.
+    *   `#080808` / `#000000` (**Space Black / Surface**): Sfondi scuri e profondi che richiamano lo spazio profondo, riducendo l'affaticamento visivo e facendo risaltare i contenuti multimediali.
+    *   `#102030` (**Void Blue / Primary Container**): Un blu scuro profondo per i contenitori e i pannelli informativi secondari.
+    *   `#e2e2e2` (**On Surface**) e `#FFFFFF` (**Stellar White**): Colori ad alto contrasto per testi, titoli ed icone.
+    *   `#F1C40F` (**Caution Yellow**) e `#2ECC71` (**Telemetry Green**): Colori d'accento per stati speciali e dati telemetrici.
+
+---
+
+## 4. Target del Progetto
 Il portale è rivolto a due macro-categorie di destinatari:
 
 *   **Appassionati di Spazio, Scienza e Astronomia**: Utenti che desiderano esplorare e rivivere le pietre miliari dell'esplorazione spaziale attraverso interpretazioni artistiche e grafiche alternative, suggestive ed emozionanti.
