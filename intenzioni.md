@@ -51,9 +51,7 @@ Il layout e la struttura visiva del sito sono stati progettati per integrarsi co
 *   **Palette Cromatica**:
     *   `#E03A3E` (**Nasa Red**): Il colore rosso ufficiale per i dettagli significativi, le chiamate all'azione (CTA) e gli stati attivi o hover.
     *   `#080808` / `#000000` (**Space Black / Surface**): Sfondi scuri e profondi che richiamano lo spazio profondo, riducendo l'affaticamento visivo e facendo risaltare i contenuti multimediali.
-    *   `#102030` (**Void Blue / Primary Container**): Un blu scuro profondo per i contenitori e i pannelli informativi secondari.
     *   `#e2e2e2` (**On Surface**) e `#FFFFFF` (**Stellar White**): Colori ad alto contrasto per testi, titoli ed icone.
-    *   `#F1C40F` (**Caution Yellow**) e `#2ECC71` (**Telemetry Green**): Colori d'accento per stati speciali e dati telemetrici.
 
 ---
 
